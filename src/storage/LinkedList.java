@@ -1,7 +1,6 @@
 package storage;
 
 import adt.People;
-import operational.Operational;
 
 import java.util.Arrays;
 
@@ -24,26 +23,6 @@ public class LinkedList {
         }
     }
 
-    public String[] showInput() {
-        Node node = head;
-        String[] list = new String[Node.size];
-        int counter = 0;
-        try {
-            while (node.next != null) {
-                list[counter] = node.data.getFirstName() + "!" + node.data.getLastName() + " " + node.data.getNumber() +
-                        "!" + node.data.getEmail();
-                counter++;
-                node = node.next;
-            }
-            list[counter] = node.data.getFirstName() + "!" + node.data.getLastName() + " " + node.data.getNumber() +
-                    "!" + node.data.getEmail();
-        } catch (NullPointerException e) {
-            System.out.println("Empty ContactList");
-
-        }
-        Arrays.sort(list);
-        return list;
-    }
 
     public Node delete(String del) {
         Node.size = Node.size - 1;
@@ -69,27 +48,26 @@ public class LinkedList {
         }
     }
 
-    public void search(String ele) {
-        Node n = head;
-        if (n == null) {
-            System.out.println("Empty ContactList!");
-        }
-        int count = 0;
-        while (n != null) {
-            if (n.data.getFirstName().equals(ele)) {
-                count = count + 1;
-                System.out.println("-------- * -------- * -------- * --------");
-
-                System.out.println("First Name : " + n.data.getFirstName() + "\nLast Name : "
-                        + n.data.getLastName());
-                Operational.formattedEmailContact(n.data.getNumber() + "!" + n.data.getEmail());
-                System.out.println("-------- * -------- * -------- * --------");
-                n = n.next;
-            } else {
-                n = n.next;
+    public String[] showInput() {
+        Node node = head;
+        String[] list = new String[Node.size];
+        int counter = 0;
+        try {
+            while (node.next != null) {
+                list[counter] = node.data.getFirstName() + "!" + node.data.getLastName() + " " + node.data.getNumber() +
+                        "!" + node.data.getEmail();
+                counter++;
+                node = node.next;
             }
+            list[counter] = node.data.getFirstName() + "!" + node.data.getLastName() + " " + node.data.getNumber() +
+                    "!" + node.data.getEmail();
+        } catch (NullPointerException e) {
+            System.out.println("Empty ContactList");
+
         }
-        System.out.println(count + " match(s) found!\n\n");
+        Arrays.sort(list);
+        return list;
     }
+
 
 }
