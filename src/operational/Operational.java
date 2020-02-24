@@ -1,6 +1,7 @@
 package operational;
 
 import adt.People;
+import storage.LinkedList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -66,6 +67,21 @@ public class Operational {
     public People addNew() {
         People response = input();
         return response;
+    }
+
+    public void view(LinkedList linkedList) {
+        linkedList.show();
+    }
+
+    public void delete(LinkedList storage, String name) {
+        storage.delete(name);
+    }
+
+    public void search(LinkedList storage) {
+        System.out.println("Enter FirstName To Search");
+        Scanner scanner = new Scanner(System.in);
+        storage.search(scanner.next());
+
     }
 
     private People input() {
