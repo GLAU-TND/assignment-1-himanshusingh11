@@ -93,5 +93,24 @@ public class LinkedList {
         System.out.println(count + " match(s) found!\n\n");
     }
 
+    public String[] contactList() {
+        String[] list = new String[Node.size];
+        Node node = head;
+        int count = 0;
+        try {
+            while (node.next != null) {
+                list[count] = node.data.getFirstName() + " " + node.data.getLastName();
+                node = node.next;
+                count = count + 1;
+            }
+            list[count] = node.data.getFirstName() + " " + node.data.getLastName();
+        } catch (NullPointerException e) {
+            System.out.println("Empty ContactList!");
+            return null;
+        }
+        Arrays.sort(list);
+        return list;
+    }
+
 
 }
