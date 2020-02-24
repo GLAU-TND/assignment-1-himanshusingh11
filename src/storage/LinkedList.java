@@ -112,5 +112,20 @@ public class LinkedList {
         return list;
     }
 
+    public void show() {
+
+        System.out.print("---Here are all your contacts---\n");
+        String[] list = showInput();
+        for (String i :
+                list) {
+            System.out.println("-------- * -------- * -------- * --------");
+            String[] sub = i.split(" ");
+            String[] names = sub[0].split("!");
+            System.out.println("First Name : " + names[0] + "\nLast Name : " + names[1]);
+            Operational.formattedEmailContact(sub[1]);
+            System.out.println("-------- * -------- * -------- * --------");
+        }
+    }
+
 
 }
