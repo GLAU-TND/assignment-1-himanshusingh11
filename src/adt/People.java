@@ -1,6 +1,6 @@
 package adt;
 
-public class Person {
+public class People {
     private String firstName;
     private String lastName;
     private String number;

@@ -12,15 +12,19 @@ public class Operational {
                 "4.delete a contact\n" +
                 "5.exit\n");
         System.out.print("INPUT : ");
-        Scanner scan =new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         int input;
-        try{
-            input=scan.nextInt();
+        try {
+            input = scan.nextInt();
             return input;
-        }
-        catch (InputMismatchException e){
+        } catch (InputMismatchException e) {
             return -1;
         }
     }
+ /*   public People addNew(){
+        People response=input();
+        return response;
+    }*/
+
 
 }
