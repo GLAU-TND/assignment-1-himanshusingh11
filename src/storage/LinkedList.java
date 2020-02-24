@@ -1,6 +1,7 @@
 package storage;
 
 import adt.People;
+import operational.Operational;
 
 import java.util.Arrays;
 
@@ -66,6 +67,29 @@ public class LinkedList {
             System.out.println("No Such Contact Exist.");
             return null;
         }
+    }
+
+    public void search(String ele) {
+        Node n = head;
+        if (n == null) {
+            System.out.println("Empty ContactList!");
+        }
+        int count = 0;
+        while (n != null) {
+            if (n.data.getFirstName().equals(ele)) {
+                count = count + 1;
+                System.out.println("-------- * -------- * -------- * --------");
+
+                System.out.println("First Name : " + n.data.getFirstName() + "\nLast Name : "
+                        + n.data.getLastName());
+                Operational.formattedEmailContact(n.data.getNumber() + "!" + n.data.getEmail());
+                System.out.println("-------- * -------- * -------- * --------");
+                n = n.next;
+            } else {
+                n = n.next;
+            }
+        }
+        System.out.println(count + " match(s) found!\n\n");
     }
 
 }
